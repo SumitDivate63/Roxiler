@@ -12,6 +12,10 @@ Rating.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 Store.hasMany(Rating, { foreignKey: 'storeId', as: 'ratings' });
 Rating.belongsTo(Store, { foreignKey: 'storeId', as: 'store' });
 
+// User has one Store (as owner)
+User.hasOne(Store, { foreignKey: 'ownerId', as: 'store' });
+Store.belongsTo(User, { foreignKey: 'ownerId', as: 'owner' });
+
 module.exports = {
   sequelize,
   User,
