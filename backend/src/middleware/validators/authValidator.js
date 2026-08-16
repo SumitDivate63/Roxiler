@@ -13,7 +13,7 @@ const newPasswordRule = body('newPassword')
   .matches(/[!@#$%^&*(),.?":{}|<>]/).withMessage('Password must contain at least one special character');
 
 const validateRegister = [
-  body('name').isLength({ min: 20, max: 60 }).withMessage('Name must be between 20 and 60 characters'),
+  body('name').isLength({ min: 3, max: 30 }).withMessage('Name must be between 3 and 30 characters'),
   body('email').isEmail().withMessage('Invalid email address'),
   body('address').optional().isLength({ max: 400 }).withMessage('Address cannot exceed 400 characters'),
   passwordRule,
