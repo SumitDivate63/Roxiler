@@ -1,18 +1,25 @@
 const express = require('express');
 const cors = require('cors');
 
+const requestLogger = require('./middleware/logger');
+const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
+const apiRoutes = require('./routes');
+
 const app = express();
 
-// Middleware
+// Global Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(requestLogger);
 
-// Basic route for testing
-app.get('/api/health', (req, res) => {
-  res.status(200).json({ status: 'ok', message: 'Server is running' });
-});
+// API Routes
+app.use('/api', apiRoutes);
 
-// TODO: Import and use routes here
+// Unknown routes (404)
+app.use(notFoundHandler);
+
+// Centralized error handling
+app.use(errorHandler);
 
 module.exports = app;
