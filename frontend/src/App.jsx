@@ -9,7 +9,8 @@ import Signup from './pages/Signup';
 import NotAuthorized from './pages/NotAuthorized';
 
 import { AdminDashboard, AdminUsers, AdminStores } from './pages/admin/Placeholders';
-import { UserStores, UserUpdatePassword } from './pages/user/Placeholders';
+import StoreList from './pages/user/StoreList';
+import UpdatePassword from './pages/user/UpdatePassword';
 import { OwnerDashboard, OwnerUpdatePassword } from './pages/owner/Placeholders';
 
 const RootRedirect = () => {
@@ -41,8 +42,8 @@ function App() {
           <Route path="/admin/stores" element={<ProtectedRoute allowedRoles={['admin']}><AdminStores /></ProtectedRoute>} />
 
           {/* User Routes */}
-          <Route path="/user/stores" element={<ProtectedRoute allowedRoles={['user']}><UserStores /></ProtectedRoute>} />
-          <Route path="/user/update-password" element={<ProtectedRoute allowedRoles={['user']}><UserUpdatePassword /></ProtectedRoute>} />
+          <Route path="/user/stores" element={<ProtectedRoute allowedRoles={['user']}><StoreList /></ProtectedRoute>} />
+          <Route path="/user/update-password" element={<ProtectedRoute allowedRoles={['user']}><UpdatePassword /></ProtectedRoute>} />
 
           {/* Store Owner Routes */}
           <Route path="/owner/dashboard" element={<ProtectedRoute allowedRoles={['store_owner']}><OwnerDashboard /></ProtectedRoute>} />

@@ -28,9 +28,6 @@ const Navbar = () => {
           <div style={{ fontWeight: 'bold', fontSize: '18px', color: 'var(--color-primary)' }}>
             {APP_NAME}
           </div>
-          <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>
-            by {COMPANY_NAME}
-          </div>
         </div>
       </div>
 
